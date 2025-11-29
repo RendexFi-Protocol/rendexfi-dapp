@@ -5,10 +5,11 @@ body {
     radial-gradient(circle at 20% 25%, rgba(170, 80, 255, 0.45), transparent 60%),
     radial-gradient(circle at 80% 75%, rgba(0, 200, 255, 0.45), transparent 60%),
     radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.7), #02030a 80%);
+    #000;
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
-  color: white;
+  overflow-x: hidden;
 }
 
 .App {
