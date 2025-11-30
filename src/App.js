@@ -8,7 +8,7 @@ function App() {
         <div className="topbar-content">
           {/* Links: Logo */}
           <div className="topbar-left">
-            <div className="logo">DexTrade</div>
+            <div className="logo">RendexFi</div>
           </div>
 
           {/* Mitte: Suchleiste */}
