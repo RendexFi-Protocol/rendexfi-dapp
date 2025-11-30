@@ -27,3 +27,139 @@ html, #root, .App {
   text-align: center;
 }
 
+/* Topbar Styles */
+.topbar {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 12px 20px;
+  width: calc(100% - 40px); /* Seitlichen Abstand */
+  margin: 0 20px; /* Abstand von den Seiten */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* Nur untere Ecken abgerundet */
+  border-radius: 0 0 16px 16px;
+  /* Verhindert dass der Hintergrund über die Ecken ragt */
+  overflow: hidden;
+}
+
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Links: Logo */
+.topbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(45deg, #aa50ff, #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mitte: Suchleiste */
+.topbar-center {
+  display: flex;
+  flex: 1;
+  max-width: 500px;
+  margin: 0 40px;
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Rechts: Settings + Wallet */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.settings-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+}
+
+.connect-wallet-button {
+  background: linear-gradient(45deg, #aa50ff, #00c8ff);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.connect-wallet-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .topbar {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    padding: 10px 15px;
+  }
+  
+  .topbar-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .topbar-center {
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+}
+
