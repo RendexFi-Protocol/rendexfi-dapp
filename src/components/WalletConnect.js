@@ -119,7 +119,7 @@ const WalletConnect = () => {
   return (
     <div className="wallet-container-jup">
       <button className="connect-button-jup" onClick={() => setShowMenu(!showMenu)}>
-        <span className="connect-button-text">Connect Wallet</span>
+        <span className="connect-button-text">Connect</span>
       </button>
 
       {showMenu && (
