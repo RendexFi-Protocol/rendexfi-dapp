@@ -1,4 +1,5 @@
 import './App.css';
+import WalletConnect from './components/WalletConnect';
 
 function App() {
   return (
@@ -6,7 +7,12 @@ function App() {
         {/* Leere Navbar */}
         <nav className="navbar">
             <div className="nav-wrapper">
-                {/* Keine Inhalte */}
+                <div className="nav-left">             
+                </div>
+                <div className="nav-right">
+                    
+                    <WalletConnect />
+                </div>
             </div>
         </nav>
     </div>
