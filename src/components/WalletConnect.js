@@ -11,12 +11,12 @@ const WalletConnect = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [balance, setBalance] = useState(0);
 
-  // STABILER MAINNET RPC → keine 0 SOL Bugs mehr
+  // *** WICHTIG: Stabiler RPC → richtige Balance ***
   const connection = React.useMemo(() => {
     return new Connection("https://api.mainnet.solana.com", "confirmed");
   }, []);
 
-  // Balance automatisch laden
+  // BALANCE automatisch laden
   useEffect(() => {
     const fetchBalance = async () => {
       try {
@@ -29,9 +29,7 @@ const WalletConnect = () => {
       }
     };
 
-    if (isConnected) {
-      fetchBalance();
-    }
+    if (isConnected) fetchBalance();
   }, [isConnected, walletAddress, connection]);
 
   // PHANTOM CONNECT
@@ -54,8 +52,8 @@ const WalletConnect = () => {
       setIsConnected(true);
       setShowMenu(false);
 
-      const publicKey = new PublicKey(address);
-      const lamports = await connection.getBalance(publicKey);
+      // Balance sofort laden
+      const lamports = await connection.getBalance(new PublicKey(address));
       setBalance(lamports / LAMPORTS_PER_SOL);
 
     } catch (err) {
@@ -81,8 +79,7 @@ const WalletConnect = () => {
       setIsConnected(true);
       setShowMenu(false);
 
-      const publicKey = new PublicKey(address);
-      const lamports = await connection.getBalance(publicKey);
+      const lamports = await connection.getBalance(new PublicKey(address));
       setBalance(lamports / LAMPORTS_PER_SOL);
 
     } catch (error) {
@@ -95,20 +92,17 @@ const WalletConnect = () => {
     try {
       if (window?.solana?.isPhantom) await window.solana.disconnect();
       if (window?.solflare?.isSolflare) await window.solflare.disconnect();
-    } catch (err) {
-      console.error("Disconnect error:", err);
-    }
+    } catch (error) {}
 
     setIsConnected(false);
     setWalletAddress('');
     setBalance(0);
   };
 
-  const shortenAddress = (addr) =>
-    `${addr.slice(0, 4)}...${addr.slice(-4)}`;
+  const shortenAddress = (address) =>
+    `${address.slice(0, 4)}...${address.slice(-4)}`;
 
-  const formatBalance = (bal) =>
-    Number(bal).toFixed(3);
+  const formatBalance = (bal) => Number(bal).toFixed(3);
 
   // Wenn verbunden
   if (isConnected) {
@@ -127,7 +121,7 @@ const WalletConnect = () => {
     );
   }
 
-  // Wenn NICHT verbunden
+  // Wenn nicht verbunden
   return (
     <div className="wallet-container-jup">
       <button className="connect-button-jup" onClick={() => setShowMenu(!showMenu)}>
@@ -145,7 +139,9 @@ const WalletConnect = () => {
 
             <button className="wallet-option-jup" onClick={connectPhantom}>
               <div className="wallet-option-content">
-                <div className="wallet-option-icon"><img src={phantom_icon} alt="Phantom" /></div>
+                <div className="wallet-option-icon">
+                  <img src={phantom_icon} alt="Phantom" />
+                </div>
                 <div className="wallet-option-info">
                   <div className="wallet-option-name">Phantom</div>
                   <div className="wallet-option-status">Popular</div>
@@ -156,7 +152,9 @@ const WalletConnect = () => {
 
             <button className="wallet-option-jup" onClick={connectSolflare}>
               <div className="wallet-option-content">
-                <div className="wallet-option-icon"><img src={solflare_icon} alt="Solflare" /></div>
+                <div className="wallet-option-icon">
+                  <img src={solflare_icon} alt="Solflare" />
+                </div>
                 <div className="wallet-option-info">
                   <div className="wallet-option-name">Solflare</div>
                   <div className="wallet-option-status">Web & Extension</div>
