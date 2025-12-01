@@ -33,7 +33,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #1a1b2f;
   backdrop-filter: blur(2px);
   z-index: 999;
 }
