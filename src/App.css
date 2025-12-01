@@ -45,10 +45,20 @@ html, #root, .App {
 
 .nav-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   padding: 0.8rem 1.5rem;
   min-height: 20px; /* Damit sie sichtbar bleibt */
+}
+
+.nav-left {
+  /* Leer, aber nimmt Platz ein */
+  flex: 1;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
 }
 
 /* Responsive Design */
