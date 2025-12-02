@@ -12,7 +12,7 @@ const WalletConnect = () => {
   const [balance, setBalance] = useState(0);
 
   const connection = new Connection(
-    "https://api.mainnet-beta.solana.com",
+    "https://api.devnet.solana.com",
     "confirmed"
   );
 
