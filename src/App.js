@@ -3,6 +3,7 @@ import './App.css';
 import WalletConnect from './components/WalletConnect';
 import SettingsButton from './components/SettingsButton';
 import SerachBar from './components/SerachBar';
+
 function App() {
   return (
     <div className="App">
