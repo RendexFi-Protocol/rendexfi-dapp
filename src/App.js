@@ -3,6 +3,7 @@ import './App.css';
 import WalletConnect from './components/WalletConnect';
 import SettingsButton from './components/SettingsButton';
 import SearchBar from './components/SearchBar';
+import logo from './assets/logo512.png';
 
 function App() {
   
@@ -11,7 +12,7 @@ function App() {
         <nav className="navbar">
             <div className="nav-wrapper">
                 <div className="nav-left">
-                  
+                    <img src={logo} alt="Logo" />
                     <SearchBar />
                 </div>
                 <div className="nav-right">
