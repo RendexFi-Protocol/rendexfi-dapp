@@ -55,13 +55,13 @@
 }
 
 .wallet-balance {
-  font-size: 8px;
+  font-size: 5px;
   font-weight: 600;
   color: #00ff88;
 }
 
 .wallet-address {
-  font-size: 8px;
+  font-size: 6px;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
 }
