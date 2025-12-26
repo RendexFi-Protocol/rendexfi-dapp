@@ -3,31 +3,31 @@
 
   width: calc(100% - 32px);
   max-width: 420px;
-  height: 190px;
+  height: 180px;
 
   margin: 96px auto 0;
 
-  /* Base Card Farbe aus dem Bild + 50% Transparenz */
+  /* Base Card – Referenzfarbe */
   background: linear-gradient(
     180deg,
-    rgba(168, 193, 196, 0.5),
-    rgba(160, 186, 189, 0.5)
+    rgba(170, 195, 198, 0.55),
+    rgba(158, 183, 186, 0.55)
   );
 
-  backdrop-filter: blur(26px);
-  -webkit-backdrop-filter: blur(26px);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
 
-  border-radius: 28px;
+  border-radius: 30px;
   overflow: hidden;
 
-  /* ✨ Form exakt wie Bild */
+  /* 🔑 Exakte Form (weicher Knick) */
   clip-path: polygon(
     0 0,
     100% 0,
     100% 100%,
-    38% 100%,
-    30% 82%,
-    0 82%
+    42% 100%,
+    34% 86%,
+    0 86%
   );
 
   box-shadow:
@@ -48,13 +48,13 @@
 .wallet-title {
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   opacity: 0.9;
 }
 
 .wallet-balance {
   margin-top: 18px;
-  font-size: 48px;
+  font-size: 46px;
   font-weight: 700;
 }
 
