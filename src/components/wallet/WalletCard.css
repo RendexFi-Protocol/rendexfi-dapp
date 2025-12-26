@@ -1,60 +1,73 @@
 .wallet--card {
   position: relative;
 
-  width: 100%;
-  max-width: 340px;
+  width: calc(100% - 32px);
+  max-width: 360px;
   height: 160px;
 
-  margin: 96px auto 0;
+  margin: 88px auto 0;
 
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.10),
-    rgba(255, 255, 255, 0.02)
-  );
-
+  /* Basis-Glas */
+  background: rgba(255, 255, 255, 0.10);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 
-  border-radius: 26px;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 78%,
-    92% 100%,
-    0 100%
-  );
+  border-radius: 28px;
+  overflow: hidden;
 
   box-shadow:
     0 18px 50px rgba(0, 0, 0, 0.45),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
+/* 🔥 Diagonaler Overlay-Layer (DESIGN-KEY) */
+.wallet--card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(30, 90, 100, 0.55),
+    rgba(20, 60, 70, 0.85)
+  );
+
+  clip-path: polygon(
+    0 0,
+    62% 0,
+    100% 55%,
+    82% 100%,
+    0 100%
+  );
+}
+
+/* Subtile Glas-Kante */
 .wallet--card::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  clip-path: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   pointer-events: none;
 }
 
 /* CONTENT */
 .wallet-content {
-  padding: 22px;
+  position: relative;
+  z-index: 2;
+
+  padding: 22px 26px;
   color: #fff;
 }
 
 .wallet-title {
   font-size: 12px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   opacity: 0.7;
 }
 
 .wallet-balance {
   margin-top: 10px;
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 600;
 }
